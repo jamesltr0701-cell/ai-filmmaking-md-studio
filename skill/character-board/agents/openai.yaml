@@ -1,0 +1,4 @@
+interface:
+  display_name: "Character Board"
+  short_description: "Compile artistic, identity-locked character board prompts"
+  default_prompt: "Use $character-board with my attached character portrait, character name, and short role description to create the final image-generation prompt."

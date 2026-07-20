@@ -1,40 +1,36 @@
-# AI Filmmaking MD Studio
+# Character Board
 
-A public studio for original, reusable Markdown systems developed by filmmaker **Tairan Li** for AI filmmaking pre-production and visual development.
+An original Character Board prompt compiler developed by filmmaker **Tairan Li** for AI filmmaking character development.
 
-This repository contains methods and prompt compilers—not finished films or case-study media.
+The repository now contains one focused Codex Skill. It converts an attached character portrait, a character name, and a short character introduction into one polished prompt for an artistic 16:9 character identity board.
 
-## Creative systems
+## What it prioritizes
 
-### Scenewright
-
-- [`scenewright-v0.1.md`](skill/ai-filmmaking-md-studio/references/scenewright-v0.1.md) — an interactive pre-production orchestrator that prepares locked assets, generation units, and Framewright handoff packages.
-
-### Production asset tools
-
-- [`character-board-production.md`](skill/ai-filmmaking-md-studio/references/character-board-production.md) — compiles a production-safe character asset board prompt.
-- [`location-card-compiler.md`](skill/ai-filmmaking-md-studio/references/location-card-compiler.md) — compiles a production-safe location card prompt.
-- [`render-style-bible.md`](skill/ai-filmmaking-md-studio/references/render-style-bible.md) — compiles a visual style bible prompt for downstream consistency.
-
-### Visual beautifiers
-
-- [`artistic-character-board.md`](skill/ai-filmmaking-md-studio/references/artistic-character-board.md) — creates an expressive character identity board prompt.
-- [`storyboard-artifier.md`](skill/ai-filmmaking-md-studio/references/storyboard-artifier.md) — transforms a locked production storyboard into an artbook-style presentation prompt.
+- strict face and identity inheritance from the reference image
+- exact inheritance of the reference image's visual medium and rendering style
+- conservative full-body and outfit completion from cropped portraits
+- character-specific pose language derived from the role description
+- consistent front, back, profile, seated, leaning, crouching, top-down, and low-angle studies
+- clean separation between all figures, portraits, silhouettes, details, and text
+- restrained color correction without character redesign
+- an asymmetrical, cinematic, premium artbook layout that remains useful for production
 
 ## Install in Codex
 
 Ask Codex to install:
 
-> `https://github.com/jamesltr0701-cell/ai-filmmaking-md-studio/tree/main/skill/ai-filmmaking-md-studio`
+> `https://github.com/jamesltr0701-cell/ai-filmmaking-md-studio/tree/main/skill/character-board`
 
-Invoke it explicitly with `$ai-filmmaking-md-studio` and select one tool. The Skill is configured not to invoke itself implicitly or start media-generation tools.
+Invoke it with `$character-board`, then attach a character image and provide the character name plus a short introduction.
 
-## Related project
+The Skill returns prompt text only. It does not start image or video generation unless the user separately requests that action.
 
-[Framewright](https://github.com/jamesltr0701-cell/framewright) is maintained separately as a versioned system and installable Codex Skill.
+## Skill source
+
+- [`SKILL.md`](skill/character-board/SKILL.md)
 
 ## Repository policy
 
-Excluded by design: videos, generated images, case libraries, active projects, private working material, caches, and third-party tools such as Koda.
+Excluded by design: videos, generated images, case libraries, active projects, private working material, caches, and third-party tools.
 
 Copyright © 2026 Tairan Li. All rights reserved. No license for reuse or redistribution is granted unless stated separately.
