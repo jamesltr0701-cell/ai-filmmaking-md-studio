@@ -1,7 +1,0 @@
-interface:
-  display_name: "AI Filmmaking MD Studio"
-  short_description: "Explicit access to original AI filmmaking MD tools"
-  default_prompt: "Use $ai-filmmaking-md-studio and ask me which studio tool to apply."
-
-policy:
-  allow_implicit_invocation: false
