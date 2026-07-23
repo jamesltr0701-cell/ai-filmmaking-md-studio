@@ -8,9 +8,9 @@ This repository contains prompt compilers and creative systems—not finished fi
 
 ### Character Board
 
-- [`Character Board Skill`](skill/character-board/SKILL.md) — compiles one artistic, identity-locked 16:9 character-board prompt from an attached portrait, character name, and short introduction.
+- [`Character Board Skill`](skill/character-board/SKILL.md) — compiles one concise, minimalist 16:9 character-board prompt from an attached portrait, character name, and short introduction.
 
-The former Production Character Board and Artistic Character Board have been consolidated into this single current version.
+The current Character Board preserves reference identity and style while limiting the board to front, side, back, high-angle, low-angle, expression, and half-body studies.
 
 ### Scenewright
 
