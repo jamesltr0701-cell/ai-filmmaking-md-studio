@@ -1,280 +1,146 @@
 ---
 name: character-board
-description: "Compile one polished image-generation prompt for an artistic 16:9 character identity board from an attached character portrait, a character name, and a short character description. Use when the user asks for a Character Board, Character Identity Board, character reference board, or a prompt that must extend a full-body identity from a full-body, half-body, bust, or portrait reference while strictly preserving the reference face, rendering medium, and visual style."
+description: "Compile one concise image-generation prompt for a minimalist artistic 16:9 character identity board from an attached character portrait, a character name, and a short introduction. Use when the user asks for a Character Board or character reference board that preserves the reference face and visual style, completes a consistent full body from a cropped portrait, and shows only front, side, back, high-angle, low-angle, expression, and half-body studies."
 ---
 
 # Character Board
 
-Create prompt text only. Do not generate an image, invoke an image or video tool, edit media, or start another filmmaking workflow unless the user separately asks for that action.
+Create prompt text only. Do not generate an image or begin another filmmaking workflow unless the user separately asks.
 
-## Required inputs
+## Inputs
 
-Use these inputs:
+Use:
 
 1. One attached character reference image.
 2. Character name.
-3. A short character introduction, role, personality, or story function.
+3. A short character introduction, role, or personality note.
 
-Accept optional outfit, mood, posture, age-impression, or production notes.
+If the image is missing, ask the user to attach it and stop. Ask for missing text only when it cannot be safely inferred.
 
-If the reference image is missing, ask the user to attach it and stop. If the name or introduction is missing and cannot be safely inferred, ask only for the missing information. Do not invent a different identity.
+## Lock the reference
 
-## Inspect the reference
+Inspect whether the source is full body, partial body, bust, or close portrait.
 
-Classify the visible coverage as one of:
+Preserve:
 
-- full body
-- three-quarter body
-- half body
-- bust
-- head-and-shoulders portrait
-- close-up portrait
+- face, facial proportions, age impression, skin tone, and distinctive features
+- hairstyle and hair silhouette
+- all visible costume and accessory evidence
+- the source image's actual medium, rendering style, shape language, palette, texture, and finish
 
-Extract two separate locks.
+If the source is cropped, infer a simple coherent full body, lower outfit, and footwear from visible evidence and the character introduction. Keep the same completion in every view. Never use the role to redesign the visible identity.
 
-### Identity lock
+Apply only restrained color correction for accidental exposure or white-balance problems. Preserve deliberate colors and style.
 
-Record the visible identity evidence:
+## Use the character introduction lightly
 
-- face shape and facial proportions
-- eye shape, spacing, and gaze character
-- nose, mouth, jaw, cheeks, and age impression
-- skin tone and distinctive facial details
-- hairstyle, hairline, volume, texture, and silhouette
-- visible body proportions
-- visible outfit, accessories, and hand behavior
+Silently compress the introduction into:
 
-Never use the role description to redesign the face, ethnicity, age, hairstyle, or other visible identity evidence.
+- a short role
+- one core mood
+- one understated posture tendency
+- 3 or 4 subtle expression variations
+- one brief visible character line
 
-### Style lock
+Use this information to guide stance, gaze, expressions, and the inferred outfit. Do not create narrative scenes or additional pose studies.
 
-Describe the reference image's actual visual medium and rendering language, including:
+## Required board content
 
-- medium, such as stylized 3D, photorealistic photography, hand-painted animation, anime, stop-motion, clay, ink, or another visible medium
-- facial stylization and shape language
-- linework or edge treatment
-- materials, shading, and surface finish
-- color palette and saturation
-- contrast and lighting softness
-- texture and detail density
+Request only:
 
-Use the reference style as the authoritative visual medium for every character study. Do not default to stylized 3D unless the reference is visibly stylized 3D or the user explicitly requests a style transformation.
+1. one primary front full-body view
+2. one side full-body view
+3. one back full-body view
+4. one complete high-angle top-down full-body view
+5. one complete low-angle full-body view
+6. one expression study containing 3 or 4 small head-and-shoulders portraits
+7. one large half-body portrait
 
-If the user explicitly requests a new medium, preserve the reference identity but use the requested medium consistently across the board.
+Do not add:
 
-## Complete the unseen full body
+- seated, leaning, crouching, action, or alternate-costume poses
+- silhouette studies
+- detail studies of eyes, hair, hands, fabric, shoes, or props
+- repeated portrait rows
+- extra turnaround angles
+- decorative objects or environmental fragments
 
-The board must contain complete full-body studies even when the source is cropped.
+## Minimal editorial layout
 
-When the lower body, footwear, hands, or parts of the outfit are not visible:
+Create an open 16:9 composition inspired by a premium animation artbook or fashion character plate.
 
-- preserve all visible costume evidence exactly
-- extend the visible garment logic into a coherent complete outfit
-- infer plausible body proportions from the face, visible torso, age impression, and character description
-- infer lower garments and footwear that support the role without turning the character into a stereotype
-- keep the completion visually simple when evidence is weak
-- keep the same completed outfit and proportions in every view
-- never imply that an inferred detail was visible in the source
+- Use one clean flat or near-flat background color: soft ivory by default, or one restrained color field derived from the character palette.
+- Place the large half-body portrait at one outer edge as the emotional anchor.
+- Arrange the front, side, and back full-body views as a calm central lineup.
+- Keep the high-angle and low-angle views smaller and nearby.
+- Place the expression portraits as one compact strip or vertical column at the opposite edge.
+- Separate images with generous negative space rather than boxes.
+- Use varied scale and slight asymmetry without making the page busy.
 
-Prioritize, in order:
+Avoid grids, cards, visible panel borders, contact sheets, technical diagrams, dense annotation systems, collage fragments, paper scraps, and repeated rectangular image tiles.
 
-1. face and identity fidelity
-2. reference visual-medium and style fidelity
-3. coherent full-body completion
-4. character-specific posture and performance
-5. artistic page design
+Do not overlap character images. Keep every face intact and every full-body view complete from head to feet.
 
-## Apply restrained color correction
+## Minimal text
 
-Correct accidental exposure, white-balance, tint, or contrast problems in the reference while preserving deliberate palette choices, skin tone, material colors, and the source's artistic character.
+Visible text must never dominate the page.
 
-Keep the corrected palette identical across every view. Do not use color correction as permission to redesign the character.
+Include only:
 
-## Compress the character
+- the character name as one elegant display title
+- one short secondary line, 8 to 18 words, combining role and character mood
 
-Silently derive:
+Optional tiny labels such as `FRONT`, `SIDE`, `BACK`, or `EXPRESSIONS` are allowed only if they improve clarity.
 
-- `NAME`: the user-provided name
-- `ROLE`: a short narrative function
-- `CORE MOOD`: 3 to 8 words describing emotional temperature
-- `VISUAL SIGNATURE`: concise visible identity markers, prioritizing face, hair, outfit silhouette, body shape, and posture
-- `POSE LANGUAGE`: weight distribution, spine attitude, shoulder tension, hand behavior, gaze, and movement energy suited to the character introduction
+Do not show `NAME:`, `ROLE:`, `CORE MOOD:`, `VISUAL SIGNATURE:`, long biographies, paragraphs, slogans, measurements, or technical notes.
 
-Use the character introduction wherever it improves expressions, posture, outfit completion, and annotations. Keep the face and reference style independent from invented story details.
+## Identity consistency
 
-## Develop one coherent pose-study direction
+Keep the same face, facial proportions, hairstyle, skin tone, outfit, inferred lower-body design, footwear, body proportions, visual medium, and palette across every view.
 
-Translate `POSE LANGUAGE` into a consistent performance concept for the whole board. Apply it to:
+## Final prompt
 
-- neutral full-body view
-- back view
-- profile view
-- seated pose
-- leaning pose
-- crouching pose
-- top-down full-body angle
-- low-angle full-body angle
+Output one English image-generation prompt unless the user asks for another language. Aim for 300 to 450 words and never exceed 500 words. Output the prompt only, with no analysis, alternatives, Markdown fence, or follow-up.
 
-Make each pose character-specific rather than generic. Keep each one an isolated studio study, never a scene. Do not add a setting. Avoid props unless one is essential to the character introduction.
+Use this compact structure and replace every placeholder:
 
-## Preserve strict layout safety
+Create a minimalist artistic 16:9 CHARACTER IDENTITY BOARD.
 
-Every character image must remain separate.
+Use the attached reference image as the strict identity and style anchor for [NAME], [SHORT CHARACTER INTRODUCTION]. The source is a [SOURCE COVERAGE] image. Preserve the exact visible face, facial proportions, age impression, skin tone, hairstyle, hair silhouette, costume evidence, and distinctive identity markers. If the source is cropped, infer a coherent complete body, [LOWER OUTFIT AND FOOTWEAR], and keep that completion identical in every full-body view. Apply restrained color correction only where needed.
 
-- no overlap between character images
-- no merged or intersecting bodies
-- no stacked figures
-- no hidden faces
-- no face cut off by a frame or page edge
-- no cropped hero, body-view, or pose-study limbs
-- no hands or feet lost outside the page
-- no text on faces, hair, bodies, clothing, hands, or detail studies
-- no image used as a background behind another image
-
-Portrait studies may use a head-and-shoulders composition, but the entire face, hair silhouette, and chin must remain visible.
-
-If the requested content risks crowding, reduce decorative marks and scale down supporting studies. Never solve crowding by overlapping or cropping character images.
-
-## Build the board content
-
-Always request:
-
-- one large off-center hero full-body view as the visual anchor
-- one neutral full-body view
-- one back full-body view
-- one profile full-body view
-- seated, leaning, and crouching pose studies driven by the same pose language
-- one top-down full-body angle
-- one low-angle full-body angle
-- 4 subtle, character-specific expression portraits
-- 2 to 3 simplified black silhouettes
-- 3 to 6 detail studies covering the most useful face, hair, outfit, hand, or footwear features
-- one minimal `CHARACTER ID` block
-
-Require strict identity consistency across every study: same face, facial proportions, eye shape, hairstyle, hair silhouette, skin tone, outfit, completed lower-body design, footwear, body proportions, posture language, visual personality, visual medium, rendering language, and corrected palette.
-
-## Write the final prompt
-
-Output one complete image-generation prompt in English unless the user requests another language. Output the prompt only, without analysis, preamble, alternatives, Markdown fences, or follow-up suggestions.
-
-Use the structure and wording below. Replace every placeholder with concrete compiled information. Do not leave brackets or placeholder labels in the final prompt.
-
-Create an artistic 16:9 CHARACTER IDENTITY BOARD.
-
-SUBJECT: use the attached reference image as the strict identity anchor. Name: [NAME]. Preserve the visible face, facial proportions, age impression, skin tone, hairstyle, hair silhouette, and distinctive identity markers. The source is a [SOURCE COVERAGE] reference; reconstruct a coherent complete full body wherever the source is cropped, extending the visible outfit into [COMPLETED OUTFIT AND FOOTWEAR] while preserving every visible costume detail. Apply restrained color correction: [COLOR-CORRECTION DIRECTION].
-
-CHARACTER DIRECTION: [ROLE]. [CORE MOOD]. [CLEANED CHARACTER INTRODUCTION].
-
-VISUAL MEDIUM: [REFERENCE-DERIVED OR EXPLICITLY REQUESTED MEDIUM AND STYLE FINGERPRINT]. Inherit this visual medium, rendering language, facial stylization, materials, shading, texture, palette, and detail density consistently across every view.
-
-Pure white / soft off-white background.
-No environment, no logo, no watermark.
-
-DESIGN DIRECTION:
-Do not create a standard character reference sheet.
-Create a cinematic identity board that feels like a high-end animation studio character study mixed with an artbook layout.
-
-The layout should be asymmetrical, elegant and visually memorable.
-Use large empty space, varied image scale and intentional imbalance.
-Avoid grids, blueprint design, catalog layout and repetitive turnaround presentation.
-
-IMPORTANT LAYOUT RULE:
-Do not overlap any character images.
-Every view must have clear separation and breathing room.
-Keep all bodies, portraits, silhouettes and detail studies visually distinct.
-No cropped faces, no hidden limbs, no stacked figures, no merged poses.
-Keep every full-body study complete from head to feet, with readable hands and footwear.
-If space becomes tight, reduce decorative elements and supporting-study scale rather than overlapping or cropping the character.
-
-MAIN COMPOSITION:
-Place one large hero full-body view slightly off-center as the visual anchor. Use [HERO POSE DIRECTION].
-
-Around it, arrange smaller supporting studies with clean spacing:
-neutral full-body view,
-back view,
-profile view,
-seated pose [SEATED DIRECTION],
-leaning pose [LEANING DIRECTION],
-crouching pose [CROUCHING DIRECTION],
-top-down full-body angle [TOP-DOWN DIRECTION],
-low-angle full-body angle [LOW-ANGLE DIRECTION],
-expressive portrait studies.
-
-Each view should feel like a separate clean character study, not a frame from one scene.
-
-FULL-BODY COMPLETION:
-The reference may not show the complete body. Infer the unseen anatomy, lower garments, hands and footwear conservatively from the visible character design and role. Preserve all visible evidence exactly. Use the same completed body proportions, outfit construction and footwear in every study. Do not create alternate costumes or alternate body types.
-
-POSE LANGUAGE:
-[POSE LANGUAGE]. Make every pose express this same character-specific physical personality through weight distribution, shoulders, spine, hands, chin, gaze and movement energy.
-
-IDENTITY LOCK:
-Preserve strict identity consistency across all views:
-same face,
-same facial proportions,
-same eye shape,
-same skin tone,
-same hairstyle,
-same hair silhouette,
-same outfit,
-same completed lower-body design and footwear,
-same body proportions,
-same posture language,
-same visual personality,
-same visual medium,
-same corrected color palette.
-
-USEFUL REFERENCE DETAILS:
-Make the character readable for future image and video generation:
-clear face shape,
-clear hair silhouette,
-clear outfit silhouette,
-clear body shape,
-clear hands,
-clear footwear,
-clear posture,
-clear expression range.
-
-ARTISTIC SECTIONS:
-Include a small silhouette study area with 2-3 simplified black character silhouettes showing the recognizable hair, body, outfit and posture shapes.
-Include a small expression study area with these four subtle emotional variations: [EXPRESSION 1], [EXPRESSION 2], [EXPRESSION 3], [EXPRESSION 4]. Preserve the exact same face in every portrait.
-Include a small detail study area showing [3-6 KEY VISUAL DETAILS] from the face, hair, outfit, hands and footwear.
-
-TEXT DESIGN:
-Add one stylish CHARACTER ID block.
-Keep it minimal, bold and art-directed.
-Use only:
-NAME: [NAME]
-ROLE: [ROLE]
-CORE MOOD: [CORE MOOD]
-VISUAL SIGNATURE: [VISUAL SIGNATURE]
-
-Use small handwritten-style labels only where helpful.
-Subtle editorial arrows and annotation marks are allowed, but keep them minimal and elegant.
-Keep all text in reserved negative space and away from every character image.
-
-STYLE:
-minimal,
-cinematic,
-premium,
-artbook-like,
-clean,
-expressive,
-useful for production.
-
-The final image should feel like an artistic character identity board designed to help an AI model understand the character's face, silhouette, completed outfit, body proportions, posture and emotional range.
+VISUAL STYLE:
+Inherit the reference image's [CONCISE STYLE FINGERPRINT] consistently across the whole board. Do not convert it into another medium.
+
+LAYOUT:
+Use a clean flat [BACKGROUND TONE] background with no environment. Create an open premium artbook composition with generous negative space, calm asymmetry, and no boxed panels or visible grid.
+
+Include only seven study groups:
+1. a primary front full-body view with [SUBTLE CHARACTER-SPECIFIC STANCE];
+2. a side full-body view;
+3. a back full-body view;
+4. a complete high-angle top-down full-body view;
+5. a complete low-angle full-body view;
+6. one compact expression strip with [3 OR 4 SUBTLE EXPRESSIONS];
+7. one large half-body portrait at the outer edge as the emotional anchor.
+
+Keep every image separate. No overlap, no cropped faces, no missing hands or feet, no alternate costume, and no identity drift.
+
+TEXT:
+Show only the elegant name `[NAME]` and one small secondary line: `[8-18 WORD ROLE AND MOOD LINE]`. Optional tiny view labels may be used sparingly. No biography, no four-field identity block, and no technical annotations.
+
+Do not include seated, leaning, crouching, action, silhouette, detail, prop, or extra portrait studies. No environment, logo, watermark, collage, contact sheet, decorative frame, or repeated image tiles.
+
+The result should feel minimal, cinematic, character-focused, quietly art-directed, and useful as a clean identity reference.
 
 ## Quality gate
 
-Before responding, silently verify that the final prompt:
+Before responding, verify:
 
-- names the source coverage and explains full-body completion
-- makes face and style inheritance higher priority than invention
-- describes the actual reference medium or an explicit requested override
-- includes restrained color correction
-- gives a character-specific pose direction
-- includes every required body view, artistic section, and identity field
-- forbids overlap, cropped faces, hidden limbs, stacked figures, and merged poses
-- contains no environment, logo, or watermark
-- contains no unresolved placeholders
-- asks for one image-generation prompt and nothing else
+- the final prompt contains only the requested seven study groups
+- the large half-body portrait and expression strip are present
+- silhouettes, detail studies, and extra poses are absent
+- visible text is limited to the name and one short line
+- the layout uses open negative space rather than tiles or boxes
+- full-body completion and reference-style inheritance remain explicit
+- the prompt is no longer than 500 words
+- no placeholders remain
