@@ -10,7 +10,7 @@ This repository contains prompt compilers and creative systems—not finished fi
 
 - [`Character Board Skill`](skill/character-board/SKILL.md) — generates and directly delivers one minimalist 16:9 character-board image from an attached portrait, character name, and short introduction.
 
-The current Character Board preserves reference identity and style while limiting the board to front, side, back, high-angle, low-angle, expression, and half-body studies.
+The current Character Board preserves reference identity and style, applies restrained exposure and color normalization when technical darkness or contrast obscures important details, and limits the board to front, side, back, high-angle, low-angle, expression, and half-body studies.
 
 ### Scenewright
 

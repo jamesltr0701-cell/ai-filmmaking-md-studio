@@ -32,7 +32,27 @@ Preserve:
 
 If the source is cropped, infer a simple coherent full body, lower outfit, and footwear from visible evidence and the character introduction. Keep the same completion in every view. Never use the role to redesign the visible identity.
 
-Apply only restrained color correction for accidental exposure or white-balance problems. Preserve deliberate colors and style.
+## Exposure and color normalization
+
+Judge technical visibility separately from artistic intent. If the portrait is muddy, unintentionally underexposed, strongly color-cast, highlight-clipped, or so contrast-heavy that the face, costume, or identity details cannot be read reliably, apply restrained color, exposure, and tonal correction when interpreting it for the board.
+
+Correct only enough to:
+
+- restore readable facial, hair, skin, costume, and accessory detail
+- recover usable midtones and reduce accidental crushed shadows or clipped highlights
+- neutralize an unintended color cast
+- prevent the generated board from inheriting avoidable darkness or harsh tonal compression
+
+Preserve:
+
+- the original hue relationships, restrained or vivid saturation character, and recognizable skin and costume colors
+- deliberate low-key lighting, chiaroscuro, shadow placement, light direction, and dramatic mood
+- the source medium, brushwork, texture, edge treatment, rendering style, and finish
+- intentional dark accents, stylized contrast, and palette design
+
+Do not flatten the lighting, turn a low-key portrait into a high-key image, relight the character from another direction, beautify the skin, remove texture, standardize the palette, or convert the artwork into a cleaner or more realistic style.
+
+Use one corrected visual baseline consistently across every view. When technical error and artistic intention are difficult to separate, make the minimum correction needed for reliable identity and costume readability; preserve style over normalization.
 
 ## Use the character introduction lightly
 
@@ -119,6 +139,7 @@ Build the generation request around these constraints:
 - Use the attached reference as the strict identity and style anchor.
 - State the source coverage and any inferred lower outfit or footwear.
 - Preserve the exact visible identity, costume evidence, visual medium, and palette.
+- If technical darkness, color cast, crushed shadows, clipped highlights, or extreme tonal compression obscures identity or costume evidence, request restrained color, exposure, and tonal normalization while explicitly preserving deliberate low-key lighting, contrast design, palette relationships, texture, and rendering style.
 - Request only the seven required study groups.
 - Specify the open premium-artbook layout, negative space, and restrained background.
 - Include the exact character name and one 8-to-18-word role-and-mood line.
@@ -138,4 +159,5 @@ Before finishing, verify:
 - the layout uses open negative space rather than tiles or boxes
 - every required full-body view is complete from head to feet
 - full-body completion and reference-style inheritance remain consistent
+- exposure and color correction improves readability only where needed, without flattening deliberate lighting or changing the source style
 - no internal prompt or placeholder text is exposed
