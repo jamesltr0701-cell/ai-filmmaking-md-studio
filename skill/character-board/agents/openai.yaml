@@ -1,4 +1,4 @@
 interface:
   display_name: "Character Board"
-  short_description: "Compile concise minimalist character board prompts"
-  default_prompt: "Use $character-board with my attached portrait, character name, and short introduction to create a minimalist identity-board prompt."
+  short_description: "Generate minimalist character identity board images"
+  default_prompt: "Use $character-board with my attached portrait, character name, and short introduction to generate and deliver a minimalist identity-board image."

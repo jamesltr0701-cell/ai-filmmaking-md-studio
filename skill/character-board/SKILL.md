@@ -1,11 +1,11 @@
 ---
 name: character-board
-description: "Compile one concise image-generation prompt for a minimalist artistic 16:9 character identity board from an attached character portrait, a character name, and a short introduction. Use when the user asks for a Character Board or character reference board that preserves the reference face and visual style, completes a consistent full body from a cropped portrait, and shows only front, side, back, high-angle, low-angle, expression, and half-body studies."
+description: "Generate and directly deliver one minimalist artistic 16:9 character identity board image from an attached character portrait, a character name, and a short introduction. Use when the user asks for a Character Board or character reference board that preserves the reference face and visual style, completes a consistent full body from a cropped portrait, and shows only front, side, back, high-angle, low-angle, expression, and half-body studies."
 ---
 
 # Character Board
 
-Create prompt text only. Do not generate an image or begin another filmmaking workflow unless the user separately asks.
+Generate the finished character-board image with the built-in image-generation tool and deliver the image directly. Treat the generation prompt as an internal implementation detail. Do not return prompt text instead of the image unless the user explicitly asks for a prompt-only deliverable.
 
 ## Inputs
 
@@ -16,6 +16,8 @@ Use:
 3. A short character introduction, role, or personality note.
 
 If the image is missing, ask the user to attach it and stop. Ask for missing text only when it cannot be safely inferred.
+
+If the reference is a local file that is not already visible in the conversation, inspect it with the image-viewing tool before generation. When calling the image-generation tool, include the reference through its supported image-input mechanism. Never omit the reference or substitute a text-only reconstruction of it.
 
 ## Lock the reference
 
@@ -46,7 +48,7 @@ Use this information to guide stance, gaze, expressions, and the inferred outfit
 
 ## Required board content
 
-Request only:
+Generate exactly one 16:9 board containing only:
 
 1. one primary front full-body view
 2. one side full-body view
@@ -98,49 +100,42 @@ Do not show `NAME:`, `ROLE:`, `CORE MOOD:`, `VISUAL SIGNATURE:`, long biographie
 
 Keep the same face, facial proportions, hairstyle, skin tone, outfit, inferred lower-body design, footwear, body proportions, visual medium, and palette across every view.
 
-## Final prompt
+## Generate and deliver
 
-Output one English image-generation prompt unless the user asks for another language. Aim for 300 to 450 words and never exceed 500 words. Output the prompt only, with no analysis, alternatives, Markdown fence, or follow-up.
+1. Compose one concise internal image-generation specification from the instructions above. Replace all inferred details before generation; leave no placeholders.
+2. Use the built-in image-generation tool with the attached portrait as the strict identity and style reference. Generate one board image by default.
+3. Inspect the result for identity consistency, complete bodies, the seven required study groups, minimal text, and an open unboxed layout.
+4. If the first result has a material identity, anatomy, cropping, text, or layout failure, make one targeted regeneration that explicitly corrects only those failures.
+5. Deliver the successful image inline as the primary response. Keep accompanying text to a brief completion note.
 
-Use this compact structure and replace every placeholder:
+Do not expose the internal prompt, offer prompt alternatives, or begin another filmmaking workflow unless the user asks. If image generation is unavailable or fails after the targeted retry, report the failure clearly; do not replace the requested image with prompt text.
 
-Create a minimalist artistic 16:9 CHARACTER IDENTITY BOARD.
+## Internal generation specification
 
-Use the attached reference image as the strict identity and style anchor for [NAME], [SHORT CHARACTER INTRODUCTION]. The source is a [SOURCE COVERAGE] image. Preserve the exact visible face, facial proportions, age impression, skin tone, hairstyle, hair silhouette, costume evidence, and distinctive identity markers. If the source is cropped, infer a coherent complete body, [LOWER OUTFIT AND FOOTWEAR], and keep that completion identical in every full-body view. Apply restrained color correction only where needed.
+Build the generation request around these constraints:
 
-VISUAL STYLE:
-Inherit the reference image's [CONCISE STYLE FINGERPRINT] consistently across the whole board. Do not convert it into another medium.
-
-LAYOUT:
-Use a clean flat [BACKGROUND TONE] background with no environment. Create an open premium artbook composition with generous negative space, calm asymmetry, and no boxed panels or visible grid.
-
-Include only seven study groups:
-1. a primary front full-body view with [SUBTLE CHARACTER-SPECIFIC STANCE];
-2. a side full-body view;
-3. a back full-body view;
-4. a complete high-angle top-down full-body view;
-5. a complete low-angle full-body view;
-6. one compact expression strip with [3 OR 4 SUBTLE EXPRESSIONS];
-7. one large half-body portrait at the outer edge as the emotional anchor.
-
-Keep every image separate. No overlap, no cropped faces, no missing hands or feet, no alternate costume, and no identity drift.
-
-TEXT:
-Show only the elegant name `[NAME]` and one small secondary line: `[8-18 WORD ROLE AND MOOD LINE]`. Optional tiny view labels may be used sparingly. No biography, no four-field identity block, and no technical annotations.
-
-Do not include seated, leaning, crouching, action, silhouette, detail, prop, or extra portrait studies. No environment, logo, watermark, collage, contact sheet, decorative frame, or repeated image tiles.
-
-The result should feel minimal, cinematic, character-focused, quietly art-directed, and useful as a clean identity reference.
+- Use case: stylized-concept.
+- Asset type: minimalist 16:9 character identity board.
+- Use the attached reference as the strict identity and style anchor.
+- State the source coverage and any inferred lower outfit or footwear.
+- Preserve the exact visible identity, costume evidence, visual medium, and palette.
+- Request only the seven required study groups.
+- Specify the open premium-artbook layout, negative space, and restrained background.
+- Include the exact character name and one 8-to-18-word role-and-mood line.
+- Repeat the identity-consistency and complete-head-to-feet requirements.
+- Repeat all excluded poses, studies, objects, frames, grids, logos, and watermarks.
 
 ## Quality gate
 
-Before responding, verify:
+Before finishing, verify:
 
-- the final prompt contains only the requested seven study groups
+- an image was generated and is the primary deliverable
+- the attached reference was passed into image generation
+- the board contains only the requested seven study groups
 - the large half-body portrait and expression strip are present
 - silhouettes, detail studies, and extra poses are absent
-- visible text is limited to the name and one short line
+- visible text is limited to the name, one short line, and optional tiny view labels
 - the layout uses open negative space rather than tiles or boxes
-- full-body completion and reference-style inheritance remain explicit
-- the prompt is no longer than 500 words
-- no placeholders remain
+- every required full-body view is complete from head to feet
+- full-body completion and reference-style inheritance remain consistent
+- no internal prompt or placeholder text is exposed

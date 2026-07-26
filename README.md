@@ -8,7 +8,7 @@ This repository contains prompt compilers and creative systems—not finished fi
 
 ### Character Board
 
-- [`Character Board Skill`](skill/character-board/SKILL.md) — compiles one concise, minimalist 16:9 character-board prompt from an attached portrait, character name, and short introduction.
+- [`Character Board Skill`](skill/character-board/SKILL.md) — generates and directly delivers one minimalist 16:9 character-board image from an attached portrait, character name, and short introduction.
 
 The current Character Board preserves reference identity and style while limiting the board to front, side, back, high-angle, low-angle, expression, and half-body studies.
 
@@ -33,7 +33,7 @@ Ask Codex to install:
 
 Invoke it with `$character-board`, then attach a character image and provide the character name plus a short introduction.
 
-The Skill returns prompt text only. It does not start image or video generation unless the user separately requests that action.
+The Skill uses the attached portrait as its identity and style reference, generates the board image directly, and returns the finished image rather than a prompt. It does not start video generation or another filmmaking workflow unless the user separately requests that action.
 
 ## Related project
 
