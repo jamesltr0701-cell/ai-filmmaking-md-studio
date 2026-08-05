@@ -1,0 +1,4 @@
+interface:
+  display_name: "Location Board"
+  short_description: "Generate four-view cinematic location boards"
+  default_prompt: "Use $location-board with my attached scene panorama to generate a four-view location board."
